@@ -1,0 +1,50 @@
+
+services:
+  db:
+    image: mariadb:10.8.3
+    container_name: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: app_db
+      MARIADB_USER: app_user
+      MARIADB_PASSWORD: app_password
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+
+  php:
+    build: .
+    container_name: php
+    working_dir: /var/www/html
+    volumes:
+      - ./symfony:/var/www/html
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:1.25
+    container_name: nginx
+    volumes:
+      - ./symfony:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8080:80"
+    depends_on:
+      - php
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+
+volumes:
+  dbdata:
