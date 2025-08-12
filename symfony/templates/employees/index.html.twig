@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pracownicy{% endblock %}
+
+{% block body %}
+<div class="ml-64">
+        <!-- Top Header -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-semibold text-gray-900">Pracownicy</h1>
+                        <p class="text-gray-600 text-sm mt-1">Zarządzaj personelem w Twojej firmie</p>
+                    </div>
+                </div>
+            </div>
+        </header>    
+        </div> 
+
+
+<div class="bg-cordes-light rounded-lg shadow p-6 ml-72 mt-6 mr-6">
+    <!-- TOOLBAR -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+        <!-- Lewa strona: przycisk Dodaj pracownika -->
+        <div>
+            <a href="#" 
+               class="flex items-center px-4 py-2 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm font-semibold shadow transition">
+                <i class="fas fa-user-plus mr-2"></i> Dodaj pracownika
+            </a>
+        </div>
+        <!-- Prawa strona: wyszukiwarka i sortowanie -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+            <!-- Wyszukiwarka -->
+            <div>
+                <input
+                    type="text"
+                    placeholder="Szukaj pracownika..."
+                    class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cordes-accent text-sm bg-white w-full sm:w-auto"
+                />
+            </div>
+            <!-- Sortowanie -->
+            <div>
+                <select class="pl-3 pr-7 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cordes-accent text-sm bg-white w-full sm:w-auto">
+                    <option value="dept">Sortuj: Wydział</option>
+                    <option value="date">Sortuj: Data zatrudnienia</option>
+                    <option value="name">Sortuj: Nazwisko</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABELA PRACOWNICY z owinięciem dla przewijania w mobile -->
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+                <tr class="bg-cordes-blue text-white">
+                    <th class="px-4 py-3 text-left font-semibold">#</th>
+                    <th class="px-4 py-3 text-left font-semibold">Imię</th>
+                    <th class="px-4 py-3 text-left font-semibold">Nazwisko</th>
+                    <th class="px-4 py-3 text-left font-semibold">Wydział</th>
+                    <th class="px-4 py-3 text-left font-semibold">Email</th>
+                    <th class="px-4 py-3 text-left font-semibold">Data zatrudnienia</th>
+                    <th class="px-4 py-3 text-left font-semibold">Akcje</th>
+                </tr>
+            </thead>
+            <tbody class="bg-cordes-light">
+                <tr class="border-b">
+                    <td class="px-4 py-3">1</td>
+                    <td class="px-4 py-3">Michał</td>
+                    <td class="px-4 py-3">Bartkiewicz</td>
+                    <td class="px-4 py-3">Produkcja</td>
+                    <td class="px-4 py-3">mbartkiewiczm@gmail.com</td>
+                    <td class="px-4 py-3">2024-01-15</td>
+                    <td class="px-4 py-3 flex space-x-2">
+                        <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
+                        <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
+                    </td>
+                </tr>
+                <!-- kolejne wiersze -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

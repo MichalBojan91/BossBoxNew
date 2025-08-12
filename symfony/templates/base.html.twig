@@ -28,7 +28,8 @@
         <div class="flex items-center justify-center h-16 bg-cordes-blue">
             <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                    <i class="fas fa-cube text-cordes-blue text-lg"></i>
+                    
+                    <i class="fas fa-user-cog text-cordes-blue text-lg"></i>
                 </div>
                 <span class="text-white text-xl font-bold">Boss Box</span>
             </div>
@@ -41,19 +42,19 @@
                     Panel główny
                 </a>
                 <a href="{{ path('app_notes') }}" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
-                    <i class="fas fa-users mr-3 text-gray-400 group-hover:text-white"></i>
+                    <i class="fas fa-book mr-3 text-gray-400 group-hover:text-white"></i>
                     Notatki
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
-                    <i class="fas fa-chart-bar mr-3 text-gray-400 group-hover:text-white"></i>
+                <a href="{{ path('app_invoices') }}" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
+                    <i class="fas fa-file-alt mr-3 text-gray-400 group-hover:text-white"></i>
                     Faktury
                 </a>
                 <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
-                    <i class="fas fa-shopping-cart mr-3 text-gray-400 group-hover:text-white"></i>
+                    <i class="fas fa-tasks mr-3 text-gray-400 group-hover:text-white"></i>
                     Zlecenia    
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
-                    <i class="fas fa-box mr-3 text-gray-400 group-hover:text-white"></i>
+                <a href="{{ path('app_employees') }}" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
+                     <i class="fas fa-users mr-3 text-gray-400 group-hover:text-white"></i>
                     Pracownicy
                 </a>
                 <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
@@ -77,8 +78,6 @@
     </div>
 
     <!-- Main Content -->
-   
-
    
 
     {% block body %}        {% endblock %}

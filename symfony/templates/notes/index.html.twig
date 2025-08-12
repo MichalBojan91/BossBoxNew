@@ -14,8 +14,83 @@
                     </div>
                 </div>
             </div>
-        </header>     
-        </div>             
+        </header>    
+        </div> 
+        <!-- Main Content -->
+        <div class="bg-cordes-light rounded-lg shadow p-6 ml-72 mt-6 mr-6"> 
+          <!-- TOOLBAR -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+        <!-- Lewa strona: przycisk Dodaj notatkę -->
+        <div>
+            <a href="#" 
+               class="flex items-center px-4 py-2 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm font-semibold shadow transition">
+                <i class="fas fa-plus mr-2"></i> Dodaj notatkę
+            </a>
+        </div>
+        <!-- Prawa strona: wyszukiwarka i sortowanie -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+            <!-- Wyszukiwarka -->
+            <div>
+                <input
+                    type="text"
+                    placeholder="Szukaj notatek..."
+                    class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cordes-accent text-sm bg-white"
+                />
+            </div>
+            <!-- Sortowanie -->
+            <div>
+                <select class="pl-3 pr-7 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cordes-accent text-sm bg-white">
+                    <option value="date_desc">Sortuj: Najnowsze</option>
+                    <option value="date_asc">Sortuj: Najstarsze</option>
+                    <option value="title_asc">A-Z</option>
+                    <option value="title_desc">Z-A</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-cordes-dark mb-6">Lista notatek</h2>
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead>
+            <tr class="bg-cordes-blue text-white">
+                <th class="px-4 py-3 text-left font-semibold">Nr</th>
+                <th class="px-4 py-3 text-left font-semibold">Tytuł</th>
+                <th class="px-4 py-3 text-left font-semibold">Data</th>
+                <th class="px-4 py-3 text-left font-semibold">Opcje</th>
+            </tr>
+        </thead>
+        <tbody class="bg-cordes-light">
+            <tr class="border-b">
+                <td class="px-4 py-3">65</td>
+                <td class="px-4 py-3">Aplikacja na dokerze</td>
+                <td class="px-4 py-3">2025-03-18 21:06:21</td>
+                <td class="px-4 py-3 flex space-x-2">
+                    <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
+                    <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
+                </td>
+            </tr>
+            <tr class="border-b">
+                <td class="px-4 py-3">66</td>
+                <td class="px-4 py-3">Refaktoryzacja databaseNote</td>
+                <td class="px-4 py-3">2025-03-19 19:10:08</td>
+                <td class="px-4 py-3 flex space-x-2">
+                    <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
+                    <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="px-4 py-3">68</td>
+                <td class="px-4 py-3">Nowa notka 23.04</td>
+                <td class="px-4 py-3">2025-04-23 08:36:15</td>
+                <td class="px-4 py-3 flex space-x-2">
+                    <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
+                    <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+            
         
 {% endblock %}
 

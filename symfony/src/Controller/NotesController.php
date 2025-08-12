@@ -12,7 +12,15 @@ final class NotesController extends AbstractController
     public function index(): Response
     {
         return $this->render('notes/index.html.twig', [
-            'controller_name' => 'NotesController',
+            
         ]);
     }
+
+    #[Route('/notes/create', name: 'app_notes_create')]
+    public function create(): Response
+    {        return $this->render('notes/create.html.twig', [
+            'controller_name' => 'NotesController',
+        ]); 
+}
+
 }

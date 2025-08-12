@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faktury{% endblock %}
+
+{% block body %}
+<div class="ml-64">
+        <!-- Top Header -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-semibold text-gray-900">Faktury</h1>
+                        <p class="text-gray-600 text-sm mt-1">Zarządzaj fakturami</p>
+                    </div>
+                </div>
+            </div>
+        </header>    
+        </div> 
+
+<div class="bg-cordes-light rounded-lg shadow p-6 ml-72 mt-6 mr-6">
+    <!-- TOOLBAR -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+        <!-- Lewa strona: przycisk Dodaj fakturę -->
+        <div>
+            <a href="#" 
+               class="flex items-center px-4 py-2 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm font-semibold shadow transition">
+                <i class="fas fa-file-invoice mr-2"></i> Dodaj fakturę
+            </a>
+        </div>
+        <!-- Prawa strona: wyszukiwarka i sortowanie -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+            <!-- Wyszukiwarka -->
+            <div>
+                <input
+                    type="text"
+                    placeholder="Szukaj faktury..."
+                    class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cordes-accent text-sm bg-white w-full sm:w-auto"
+                />
+            </div>
+            <!-- Sortowanie -->
+            <div>
+                <select class="pl-3 pr-7 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cordes-accent text-sm bg-white w-full sm:w-auto">
+                    <option value="date">Sortuj: Data sprzedaży</option>
+                    <option value="amount">Kwota (rosnąco)</option>
+                    <option value="amount_desc">Kwota (malejąco)</option>
+                    <option value="contractor">Kontrahent</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABELA FAKTUR z overflow-x-auto dla mobile -->
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+                <tr class="bg-cordes-blue text-white">
+                    <th class="px-4 py-3 text-left font-semibold">Nr dok.</th>
+                    <th class="px-4 py-3 text-left font-semibold">Data sprzedaży</th>
+                    <th class="px-4 py-3 text-left font-semibold">Kontrahent</th>
+                    <th class="px-4 py-3 text-left font-semibold">NIP</th>
+                    <th class="px-4 py-3 text-left font-semibold">Produkt/usługa</th>
+                    <th class="px-4 py-3 text-left font-semibold">Kwota brutto</th>
+                    <th class="px-4 py-3 text-left font-semibold">Status</th>
+                    <th class="px-4 py-3 text-left font-semibold">Opcje</th>
+                </tr>
+            </thead>
+            <tbody class="bg-cordes-light">
+                <tr class="border-b">
+                    <td class="px-4 py-3">1/03/2025</td>
+                    <td class="px-4 py-3">2025-03-14</td>
+                    <td class="px-4 py-3">AdPro Karol Adwent</td>
+                    <td class="px-4 py-3">2147483647</td>
+                    <td class="px-4 py-3">Wymiana lamp w piekarni społem</td>
+                    <td class="px-4 py-3">14,760</td>
+                    <td class="px-4 py-3"><span class="text-green-600">Faktura opłacona</span></td>
+                    <td class="px-4 py-3 flex space-x-2">
+                        <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
+                        <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
+                    </td>
+                </tr>
+                <tr class="border-b">
+                    <td class="px-4 py-3">2/03/2025</td>
+                    <td class="px-4 py-3">2025-03-26</td>
+                    <td class="px-4 py-3">AdPro Karol Adwent</td>
+                    <td class="px-4 py-3">2147483647</td>
+                    <td class="px-4 py-3">Usługa</td>
+                    <td class="px-4 py-3">24,600</td>
+                    <td class="px-4 py-3"><span class="text-green-600">Faktura opłacona</span></td>
+                    <td class="px-4 py-3 flex space-x-2">
+                        <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
+                        <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-3">3/03/2025</td>
+                    <td class="px-4 py-3">2025-03-31</td>
+                    <td class="px-4 py-3">Nellov_store Aleksandra Bartkiewicz</td>
+                    <td class="px-4 py-3">2147483647</td>
+                    <td class="px-4 py-3">Usługi amtrymonialne</td>
+                    <td class="px-4 py-3">123,000</td>
+                    <td class="px-4 py-3"><span class="text-green-600">Faktura opłacona</span></td>
+                    <td class="px-4 py-3 flex space-x-2">
+                        <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
+                        <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
