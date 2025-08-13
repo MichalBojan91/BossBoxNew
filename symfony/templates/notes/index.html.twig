@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Test {% endblock %}
+{% block title %} Notatki {% endblock %}
 
 {% block body %}
       <div class="ml-64">
@@ -22,7 +22,7 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
         <!-- Lewa strona: przycisk Dodaj notatkę -->
         <div>
-            <a href="#" 
+            <a href="{{ path('app_notes_create') }}" 
                class="flex items-center px-4 py-2 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm font-semibold shadow transition">
                 <i class="fas fa-plus mr-2"></i> Dodaj notatkę
             </a>
@@ -50,6 +50,11 @@
     </div>
 
     <h2 class="text-2xl font-bold text-cordes-dark mb-6">Lista notatek</h2>
+      {% for message in app.flashes('success') %}
+        <div class="mb-4 p-3 rounded bg-green-100 text-green-800 border border-green-300">
+            {{ message }}
+        </div>
+    {% endfor %}
     <table class="min-w-full divide-y divide-gray-200">
         <thead>
             <tr class="bg-cordes-blue text-white">
@@ -60,34 +65,25 @@
             </tr>
         </thead>
         <tbody class="bg-cordes-light">
-            <tr class="border-b">
-                <td class="px-4 py-3">65</td>
-                <td class="px-4 py-3">Aplikacja na dokerze</td>
-                <td class="px-4 py-3">2025-03-18 21:06:21</td>
-                <td class="px-4 py-3 flex space-x-2">
-                    <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
-                    <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
-                </td>
-            </tr>
-            <tr class="border-b">
-                <td class="px-4 py-3">66</td>
-                <td class="px-4 py-3">Refaktoryzacja databaseNote</td>
-                <td class="px-4 py-3">2025-03-19 19:10:08</td>
-                <td class="px-4 py-3 flex space-x-2">
-                    <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
-                    <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="px-4 py-3">68</td>
-                <td class="px-4 py-3">Nowa notka 23.04</td>
-                <td class="px-4 py-3">2025-04-23 08:36:15</td>
-                <td class="px-4 py-3 flex space-x-2">
-                    <button class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</button>
-                    <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</button>
-                </td>
-            </tr>
-        </tbody>
+    {% for note in notes %}
+        <tr class="border-b">
+            <td class="px-4 py-3">{{ note.id }}</td>
+            <td class="px-4 py-3">{{ note.title }}</td>
+            <td class="px-4 py-3">
+                {{ note.created ? note.created|date('Y-m-d H:i:s') : '' }}
+            </td>
+            <td class="px-4 py-3 flex space-x-2">
+                <a href="{{ path('app_notes_show', { 'id': note.id }) }}" class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Szczegóły</a>
+                <a href="#" class="px-3 py-1 bg-cordes-accent text-white rounded hover:bg-blue-700 text-sm">Edytuj</a>
+                <a href="#" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-sm">Usuń</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4" class="px-4 py-3 text-center text-gray-500">Brak notatek w bazie.</td>
+        </tr>
+    {% endfor %}
+</tbody>
     </table>
 </div>
             
